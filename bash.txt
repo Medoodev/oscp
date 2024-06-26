@@ -1,0 +1,10 @@
+ls
+chmod +x file
+#!/bin/bash
+bash file
+/bin/bash file
+unset -v h
+date
+V=$(date)
+G=`date`
+$1 ==>arg

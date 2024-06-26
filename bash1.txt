@@ -1,0 +1,35 @@
+#!/bin/bash
+$s=0
+if[$s==0]
+then 
+echo "done"
+elif [con]
+then 
+code
+else
+echo "not"
+fi
+-eq
+-gt
+-lt
+and ==> && -a
+or ==> || -o
+for var in list 
+do 
+command
+done
+for $i in $(seq 1 10) or {0..10}
+do echo "hghgh $i" ; done
+while [$s==6 ]
+do 
+echo "$s"
+(($s++))
+done
+
+name(){
+
+echo "hi $1"
+
+}
+name $1
+# ==> comment
