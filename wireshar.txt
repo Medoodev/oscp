@@ -1,0 +1,10 @@
+sudo wireshark
+ftp ip
+netstat -tulpn 
+bye
+sudo apt install vsftpd
+sudo systemctl vsftpd
+get file_name
+sudo tcpdump
+sudo tmpdump -r file.pcap
+sudo tcpdump -n -A
